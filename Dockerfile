@@ -9,6 +9,7 @@ RUN apt-get update \
     gosu \
     procps \
     python3 \
+    python3-dev \
     tini \
     build-essential \
     zip \
@@ -20,8 +21,8 @@ RUN npm install -g clawhub@latest
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml ./
-RUN corepack enable && pnpm install --frozen-lockfile
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN corepack enable && pnpm install --frozen-lockfile --allow-scripts
 
 COPY src ./src
 COPY --chmod=755 entrypoint.sh ./entrypoint.sh

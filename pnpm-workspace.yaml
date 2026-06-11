@@ -1,5 +1,4 @@
 allowBuilds:
   node-pty: true
-pnpm:
-  onlyBuiltDependencies:
-    - node-pty
+onlyBuiltDependencies:
+  - node-pty
