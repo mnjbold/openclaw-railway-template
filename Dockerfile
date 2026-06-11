@@ -22,7 +22,7 @@ RUN npm install -g clawhub@latest
 WORKDIR /app
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-RUN corepack enable && pnpm install --frozen-lockfile --allow-scripts
+RUN corepack enable && pnpm install --frozen-lockfile
 
 COPY src ./src
 COPY --chmod=755 entrypoint.sh ./entrypoint.sh
