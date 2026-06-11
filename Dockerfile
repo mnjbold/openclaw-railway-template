@@ -1,4 +1,5 @@
 FROM node:24-bookworm
+ARG CACHEBUST=20260611154746
 
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -23,7 +24,6 @@ COPY package.json pnpm-lock.yaml ./
 RUN corepack enable && pnpm install --frozen-lockfile --prod
 
 COPY src ./src
-ARG CACHEBUST=202606111543
 COPY --chmod=755 entrypoint.sh ./entrypoint.sh
 
 RUN useradd -m -s /bin/bash openclaw \
