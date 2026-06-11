@@ -1,5 +1,5 @@
 FROM node:24-bookworm
-ARG CACHEBUST=20260611154746
+ARG CACHEBUST=20260611163130
 
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -21,7 +21,7 @@ RUN npm install -g clawhub@latest
 WORKDIR /app
 
 COPY package.json pnpm-lock.yaml ./
-RUN corepack enable && pnpm install --frozen-lockfile
+RUN corepack enable && pnpm install --no-frozen-lockfile
 
 COPY src ./src
 COPY --chmod=755 entrypoint.sh ./entrypoint.sh
