@@ -8,15 +8,11 @@
   "scripts": {
     "dev": "node src/server.js",
     "start": "node src/server.js",
-    "lint": "node -c src/server.js"
+    "lint": "node -c src/server.js",
+    "test": "node --test src/*.test.mjs"
   },
   "dependencies": {
     "express": "^5.1.0",
-    "http-proxy": "^1.18.1",
-    "node-pty": "^1.0.0",
-    "ws": "^8.18.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": ["node-pty"]
+    "http-proxy": "^1.18.1"
   }
 }
